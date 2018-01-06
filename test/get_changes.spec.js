@@ -1,29 +1,27 @@
-/* jslint node: true, indent: 2 , nomen  : true */
-/* global describe, it, expect, beforeEach, afterEach */
+/* global describe, it, expect, beforeEach */
 
 
-let addDB = require('../lib/addDB'),
-  save_doc_fn = require('../lib/save_doc'),
-  get_changes_fn = require('../lib/get_changes');
+let addDB = require('../lib/addDB')
+let save_doc_fn = require('../lib/save_doc')
+let get_changes_fn = require('../lib/get_changes')
 
 describe('get_changes', () => {
-  let mock_mock,
-    save_doc,
-    get_changes,
-    dummy_function,
-    res;
+  let mock_mock
+  let save_doc
+  let get_changes
+  let dummy_function
+  let res
 
-  dummy_function = function () {
+  dummy_function = () => {
 
   };
-  /* jslint unparam: true */
+
   res = {
     send() {
 
     },
     setHeader: dummy_function,
   };
-  /* jslint unparam: false */
 
   beforeEach(() => {
     mock_mock = {
@@ -65,7 +63,7 @@ describe('get_changes', () => {
   });
 
   it('should get the changes since revision 0', (done) => {
-    res.write = function (str) {
+    res.write = (str) => {
       expect(str[str.length - 1]).toEqual('\n');
       let chunk = JSON.parse(str);
       expect(chunk.id).toEqual('miko');

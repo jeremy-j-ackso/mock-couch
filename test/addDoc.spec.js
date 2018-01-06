@@ -1,15 +1,14 @@
-/* jslint node: true, indent: 2 , nomen  : true */
-/* global describe, it, expect, beforeEach, afterEach, emit */
+/* global describe, it, expect, beforeEach, emit */
 
 
-let addDoc = require('../lib/addDoc'),
-  mockDB = require('../lib/mockDB');
+let addDoc = require('../lib/addDoc')
+let mockDB = require('../lib/mockDB')
 
 describe('addDoc', () => {
-  let mock_mock,
-    db,
-    dummy_function;
-  dummy_function = function () {
+  let mock_mock
+  let db
+  let dummy_function
+  dummy_function = () => {
 
   };
 

@@ -1,25 +1,25 @@
-/* jslint node: true, indent: 2 , nomen  : true */
-/* global describe, it, expect, beforeEach, afterEach, emit */
+/* eslint no-unused-vars: "warn" */
+/* global describe, it, expect, beforeEach, emit */
 
 
-let view_fn = require('../lib/get_view'),
-  save_doc_fn = require('../lib/save_doc'),
-  bulk_docs_fn = require('../lib/bulk_docs'),
-  mockDB = require('../lib/mockDB');
+let view_fn = require('../lib/get_view')
+let save_doc_fn = require('../lib/save_doc')
+let bulk_docs_fn = require('../lib/bulk_docs')
+let mockDB = require('../lib/mockDB')
 
 describe('views', () => {
-  let mock_mock,
-    get,
-    result,
-    dummy_function,
-    res,
-    save_doc,
-    bulk_docs;
+  let mock_mock
+  let get
+  let result
+  let dummy_function
+  let res
+  let save_doc
+  let bulk_docs
 
-  dummy_function = function () {
+  dummy_function = () => {
 
   };
-  /* jslint unparam: true */
+
   res = {
     send(status, obj) {
       result = obj;
@@ -115,7 +115,6 @@ describe('views', () => {
     save_doc = save_doc_fn(mock_mock);
     bulk_docs = bulk_docs_fn(mock_mock);
   });
-  /* jslint unparam: false */
 
   it('should execute the reduce function by default, with no grouping', () => {
     get({ route: { method: 'GET' }, params: { db: 'people', doc: 'designer', name: 'someview' }, query: { } }, res, dummy_function);
@@ -218,6 +217,7 @@ describe('views', () => {
     get({ route: { method: 'GET' }, query: {}, params: { db: 'people', doc: 'test', name: 'all' } }, res, dummy_function);
     expect(result.rows.length).toBe(2);
   });
+
   it('could be added by uploading a design document using the bulk method', () => {
     bulk_docs({
       route: { method: 'POST' }, params: { db: 'people' }, query: {}, body: { docs: [{ _id: '_design/test', views: { all: { map: 'function(doc) { if (doc.money > 30) { emit(doc._id, doc.money); } }' } } }] },

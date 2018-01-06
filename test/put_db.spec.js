@@ -1,27 +1,25 @@
-/* jslint node: true, indent: 2 , nomen  : true */
-/* global describe, it, expect, beforeEach, afterEach */
+/* global describe, it, expect, beforeEach */
 
 
 let put_db_fn = require('../lib/put_db');
 
 describe('put_db', () => {
-  let mock_mock,
-    put_db,
-    result,
-    dummy_function,
-    res;
+  let mock_mock
+  let put_db
+  let result
+  let dummy_function
+  let res
 
-  dummy_function = function () {
+  dummy_function = () => {
 
   };
-  /* jslint unparam: true */
+
   res = {
     send(status, obj) {
       result = obj;
     },
     setHeader: dummy_function,
   };
-  /* jslint unparam: false */
 
   beforeEach(() => {
     mock_mock = {
@@ -69,6 +67,7 @@ describe('put_db', () => {
     put_db({ params: { db: 'new_db' } }, res, dummy_function);
     expect(mock_mock.changes.new_db.length).toBe(0);
   });
+
   it('should allow to create a database with special characters', () => {
     put_db({ params: { db: 'abc_$()+-/' } }, res, dummy_function);
     expect(!!mock_mock.databases['abc_$()+-/']).toBe(true);

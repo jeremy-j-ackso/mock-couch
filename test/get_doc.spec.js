@@ -1,21 +1,20 @@
-/* jslint node: true, indent: 2 , nomen  : true */
-/* global describe, it, expect, beforeEach, afterEach */
+/* global describe, it, expect, beforeEach */
 
 
 let get_doc_fn = require('../lib/get_doc');
 
 describe('get_doc', () => {
-  let mock_mock,
-    get,
-    statusCode,
-    result,
-    dummy_function,
-    res;
+  let mock_mock
+  let get
+  let statusCode
+  let result
+  let dummy_function
+  let res
 
-  dummy_function = function () {
+  dummy_function = () => {
 
   };
-  /* jslint unparam: true */
+
   res = {
     send(status, obj) {
       statusCode = status;
@@ -23,7 +22,6 @@ describe('get_doc', () => {
     },
     setHeader: dummy_function,
   };
-  /* jslint unparam: false */
 
   beforeEach(() => {
     let db = {

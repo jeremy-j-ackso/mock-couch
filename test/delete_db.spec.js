@@ -1,17 +1,16 @@
-/* jslint node: true, indent: 2 , nomen  : true */
-/* global describe, it, expect, beforeEach, afterEach */
+/* global describe, it, expect, beforeEach */
 
 
 let del_fn = require('../lib/delete_db');
 
 describe('delete_db', () => {
-  let mock_mock,
-    del,
-    result,
-    dummy_function,
-    res;
+  let mock_mock
+  let del
+  let result
+  let dummy_function
+  let res
 
-  dummy_function = function () {
+  dummy_function = () => {
 
   };
   /* jslint unparam: true */

@@ -1,29 +1,27 @@
-/* jslint node: true, indent: 2 , nomen  : true */
-/* global describe, it, expect, beforeEach, afterEach */
+/* global describe, it, expect, beforeEach */
 
 
-let bulk_docs_fn = require('../lib/bulk_docs'),
-  mockDB = require('../lib/mockDB');
+let bulk_docs_fn = require('../lib/bulk_docs')
+let mockDB = require('../lib/mockDB')
 
 describe('_bulk_docs', () => {
-  let mock_mock,
-    bulkDocs,
-    result,
-    people,
-    dummy_function,
-    res;
+  let mock_mock
+  let bulkDocs
+  let result
+  let { people } = mock_mock.databases
+  let dummy_function
+  let res
 
-  dummy_function = function () {
+  dummy_function = () => {
 
   };
-  /* jslint unparam: true */
+
   res = {
     send(status, obj) {
       result = obj;
     },
     setHeader: dummy_function,
   };
-  /* jslint unparam: false */
 
   beforeEach(() => {
     let db = {
@@ -51,7 +49,6 @@ describe('_bulk_docs', () => {
       sequence: { people: 3 },
     };
     bulkDocs = bulk_docs_fn(mock_mock);
-    people = mock_mock.databases.people;
   });
 
   it('should be able to create several documents', () => {

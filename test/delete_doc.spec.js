@@ -1,18 +1,17 @@
-/* jslint node: true, indent: 2 , nomen  : true */
-/* global describe, it, expect, beforeEach, afterEach */
+/* global describe, it, expect, beforeEach */
 
 
 let del_fn = require('../lib/delete_doc');
 
 describe('delete_doc', () => {
-  let mock_mock,
-    del,
-    statusCode,
-    result,
-    dummy_function,
-    res;
+  let mock_mock
+  let del
+  let statusCode
+  let result
+  let dummy_function
+  let res
 
-  dummy_function = function () {
+  dummy_function = () => {
 
   };
   res = {

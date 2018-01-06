@@ -1,22 +1,21 @@
-/* jslint node: true, indent: 2 , nomen  : true */
-/* global describe, it, expect, beforeEach, afterEach */
+/* global describe, it, expect, beforeEach */
 
 
-let all_docs_fn = require('../lib/check_db'),
-  mockDB = require('../lib/mockDB');
+let all_docs_fn = require('../lib/check_db')
+let mockDB = require('../lib/mockDB')
 
 describe('check_db', () => {
-  let mock_mock,
-    get,
-    statusCode,
-    result,
-    dummy_function,
-    res;
+  let mock_mock
+  let get
+  let statusCode
+  let result
+  let dummy_function
+  let res
 
-  dummy_function = function () {
+  dummy_function = () => {
 
   };
-  /* jslint unparam: true */
+
   res = {
     send(status, obj) {
       statusCode = status;
@@ -24,7 +23,6 @@ describe('check_db', () => {
     },
     setHeader: dummy_function,
   };
-  /* jslint unparam: false */
 
   beforeEach(() => {
     let db = {

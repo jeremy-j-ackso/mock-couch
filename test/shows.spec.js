@@ -1,20 +1,19 @@
-/* jslint node: true, indent: 2 , nomen : true */
 /* global describe, it, expect, beforeEach */
 
 
-let show_fn = require('../lib/get_show'),
-  mockDB = require('../lib/mockDB');
+let show_fn = require('../lib/get_show')
+let mockDB = require('../lib/mockDB')
 
 describe('shows', () => {
-  let dummy_function,
-    get,
-    headers,
-    mock_mock,
-    res,
-    result,
-    statusCode;
+  let dummy_function
+  let get
+  let headers
+  let mock_mock
+  let res
+  let result
+  let statusCode
 
-  dummy_function = function (key, value) {
+  dummy_function = (key, value) => {
     headers[key] = value;
   };
 

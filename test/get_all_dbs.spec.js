@@ -1,17 +1,16 @@
-/* jslint node: true, indent: 2 , nomen  : true */
-/* global describe, it, expect, beforeEach, afterEach */
+/* global describe, it, expect, beforeEach */
 
 
 let all_dbs_fn = require('../lib/all_dbs');
 
 describe('_all_dbs', () => {
-  let mock_mock,
-    get,
-    result,
-    dummy_function,
-    res;
+  let mock_mock
+  let get
+  let result
+  let dummy_function
+  let res
 
-  dummy_function = function () {
+  dummy_function = () => {
 
   };
 

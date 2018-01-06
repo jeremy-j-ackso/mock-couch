@@ -1,28 +1,27 @@
-/* jslint node: true, indent: 2 , nomen  : true */
-/* global describe, it, expect, beforeEach, afterEach */
+/* eslint no-unused-vars: "warn" */
+/* global describe, it, expect, beforeEach */
 
 
-let addDB = require('../lib/addDB'),
-  save_doc_fn = require('../lib/save_doc');
+let addDB = require('../lib/addDB')
+let save_doc_fn = require('../lib/save_doc')
 
 describe('save_doc', () => {
-  let mock_mock,
-    save_doc,
-    result,
-    dummy_function,
-    res;
+  let mock_mock
+  let save_doc
+  let result
+  let dummy_function
+  let res
 
-  dummy_function = function () {
+  dummy_function = () => {
 
   };
-  /* jslint unparam: true */
+
   res = {
     send(status, obj) {
       result = obj;
     },
     setHeader: dummy_function,
   };
-  /* jslint unparam: false */
 
   beforeEach(() => {
     let db = {

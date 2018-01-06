@@ -1,23 +1,22 @@
-/* jslint node: true, indent: 2 , nomen  : true */
-/* global describe, it, expect, beforeEach, afterEach */
+/* global describe, it, expect, beforeEach */
 
 
-let get_uuids_fn = require('../lib/get_uuids');
+let get_uuids_fn = require('../lib/get_uuids')
 
 describe('get_uuids', () => {
-  let mock_mock,
-    get,
-    custom_get,
-    custom_mock,
-    statusCode,
-    result,
-    dummy_function,
-    res;
+  let mock_mock
+  let get
+  let custom_get
+  let custom_mock
+  let statusCode
+  let result
+  let dummy_function
+  let res
 
-  dummy_function = function () {
+  dummy_function = () => {
 
   };
-  /* jslint unparam: true */
+
   res = {
     send(status, obj) {
       statusCode = status;
@@ -25,7 +24,6 @@ describe('get_uuids', () => {
     },
     setHeader: dummy_function,
   };
-  /* jslint unparam: false */
 
   beforeEach(() => {
     mock_mock = {
