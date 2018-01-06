@@ -16,7 +16,8 @@ module.exports = (grunt) => {
     },
   });
 
-  grunt.loadNpmTasks('grunt-jslint');
+  // grunt.loadNpmTasks('grunt-jslint');
+  grunt.loadNpmTasks('grunt-eslint');
   grunt.loadNpmTasks('grunt-jasmine-nodejs');
 
   // Default task(s).
