@@ -23,6 +23,7 @@
   },
   "dependencies": {
     "couch-viewkey-compare": ">=1.0.1",
+    "lodash": "^4.17.4",
     "ramda": "^0.25.0",
     "restify": "^6.3.4",
     "underscore": ">=1.8.3"
