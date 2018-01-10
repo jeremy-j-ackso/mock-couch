@@ -1,3 +1,4 @@
+/* eslint prefer-destructuring: "off" */
 /* global describe, it, expect, beforeEach */
 
 
@@ -8,9 +9,9 @@ describe('_bulk_docs', () => {
   let mock_mock
   let bulkDocs
   let result
-  let { people } = mock_mock.databases
   let dummy_function
   let res
+  let people
 
   dummy_function = () => {
 
@@ -49,10 +50,20 @@ describe('_bulk_docs', () => {
       sequence: { people: 3 },
     };
     bulkDocs = bulk_docs_fn(mock_mock);
+    people = mock_mock.databases.people
   });
 
   it('should be able to create several documents', () => {
-    bulkDocs({ params: { db: 'people' }, body: { docs: [{ _id: 'player2', name: 'sanae', lastname: 'kochiya' }, { name: 'chen' }, { _id: 'moonbunny', name: 'reisen', nickname: 'udonge' }] } }, res, dummy_function);
+    bulkDocs({
+      params: { db: 'people' },
+      body: {
+        docs: [
+          { _id: 'player2', name: 'sanae', lastname: 'kochiya' },
+          { name: 'chen' },
+          { _id: 'moonbunny', name: 'reisen', nickname: 'udonge' },
+        ],
+      },
+    }, res, dummy_function);
     expect(people.__doc_count).toBe(6);
     expect(!!people.player2).toBe(true);
     expect(people.moonbunny.nickname).toBe('udonge');
